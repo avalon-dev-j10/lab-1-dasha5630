@@ -5,36 +5,71 @@ package ru.avalon.java.dev.j10.labs.models;
  * <p>
  * Паспортные данные должны включать:
  * <ol>
- *  <li> серию и номер документа;
- *  <li> имя;
- *  <li> фамилию;
- *  <li> отчество;
- *  <li> второе имя;
- *  <li> день рождения;
- *  <li> дату выдачи;
- *  <li> орган, выдавший документ.
+ * <li> серию и номер документа;
+ * <li> имя;
+ * <li> фамилию;
+ * <li> отчество;
+ * <li> второе имя;
+ * <li> день рождения;
+ * <li> дату выдачи;
+ * <li> орган, выдавший документ.
  * </ol>
  */
-class Passport {
+public class Passport {
 
-    /*
-     * TODO(Студент): Закончить определение класса.
-     *
-     * 1. Объявить атрибуты класса.
-     *
-     * 2. Определить необходимые методы класса. Подумайте о
-     *    том, какие методы должны существовать в классе,
-     *    чтобы обеспечивать получение всей необходимой
-     *    информации о состоянии объектов данного класса.
-     *    Все ли поля обязательно будут проинициализированы
-     *    при создании экземпляра?
-     *
-     * 3. Создайте все необходимые конструкторы класса.
-     *
-     * 4. Помните о возможности существования перегруженных
-     *    конструкторов.
-     *
-     * 5. Обеспечте возможность использования класса за
-     *    пределами пакета.
-     */
+    //name and surname
+    public Passport(String number, String series, String name, String surname, String bithday, String dateOfIssue, String ministry) {
+        this.series = series;
+        this.number = number;
+        this.name = name;
+        this.surname = surname;
+        this.bithday = bithday;
+        this.dateOfIssue = dateOfIssue;
+        this.ministry = ministry;
+
+    }
+
+    // Flag true - Partonymic; false - SecomdName
+    public Passport(String number, String series, String name, String surname, boolean flag, String patronymicOrSecomdName, String bithday, String dateOfIssue, String ministry) {
+        this(number, series, name, surname, bithday, dateOfIssue, ministry);
+        if (flag) {
+            this.patronymic = patronymic;
+        } else {
+            this.secondName = secondName;
+        }
+    }
+
+    // + SecomdName and Partonymic
+    public Passport(String number, String series, String name, String surname, String secondName, String patronymic, String bithday, String dateOfIssue, String ministry) {
+        this(number, series, name, surname, bithday, dateOfIssue, ministry);
+        this.secondName = secondName;
+        this.patronymic = patronymic;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String secondName() {
+        return secondName;
+    }
+
+    public String patronymic() {
+        return patronymic;
+    }
+
+    private String series;
+    private String number;
+    private String name;
+    private String surname;
+    private String patronymic;
+    private String secondName;
+    private String bithday;
+    private String dateOfIssue;
+    private String ministry;
+
 }
