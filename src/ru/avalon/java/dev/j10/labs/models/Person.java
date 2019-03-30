@@ -14,9 +14,9 @@ import ru.avalon.java.dev.j10.labs.commons.*;
  */
 public class Person {
 
-    String name;
-    Passport passport;
-    Address address;
+    private String name;
+    private Passport passport;
+    private Address address;
 
     public Person(String name, Passport passport, Address address) {
         this.address = address;
@@ -61,8 +61,6 @@ public class Person {
      * @return адрес регистрации в виде строки.
      */
     public String getAddress() {
-        return address.getCountry() + " " + address.getCity() 
-                + " " + address.getStreet() + " " + address.getHomeNumber() 
-                + " " + address.getBilding() + " " + address.getFlat();
+        return passport.getRegistration();
     }
 }

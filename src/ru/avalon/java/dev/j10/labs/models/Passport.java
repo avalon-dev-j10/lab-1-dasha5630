@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о паспортных данных человека.
  * <p>
@@ -62,6 +64,13 @@ public class Passport {
         return patronymic;
     }
 
+    public String getRegistration() {
+        return registration.getCountry() + " " + registration.getCity() 
+                + " " + registration.getStreet() + " " + registration.getHomeNumber() 
+                + " " + registration.getBilding() + " " + registration.getFlat();
+    }
+    
+
     private String series;
     private String number;
     private String name;
@@ -71,5 +80,6 @@ public class Passport {
     private String bithday;
     private String dateOfIssue;
     private String ministry;
+    private Address registration;
 
 }
